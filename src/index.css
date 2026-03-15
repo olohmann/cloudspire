@@ -15,11 +15,15 @@
   --color-solo: #5a9e5a;
   --color-coop: #5a7ec8;
 
+  --color-highlight: rgba(197, 150, 58, 0.35);
+
   --font-display: "Cinzel", serif;
   --font-body: "Inter", system-ui, sans-serif;
 }
 
 body {
+  background-color: var(--color-midnight);
+  color: var(--color-parchment);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
@@ -44,6 +48,21 @@ body {
   background: var(--color-gold-dark);
 }
 
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-midnight: #f5f1eb;
+  --color-midnight-light: #e9e4dc;
+  --color-midnight-dark: #ffffff;
+  --color-parchment: #2d2a24;
+  --color-parchment-dark: #6b6358;
+  --color-gold: #a07828;
+  --color-gold-light: #b8912e;
+  --color-gold-dark: #8a6820;
+  --color-teal: #1d5858;
+  --color-teal-light: #287878;
+  --color-highlight: rgba(160, 120, 40, 0.3);
+}
+
 /* Card styling */
 .card-parchment {
   background: rgba(20, 30, 50, 0.6);
@@ -53,4 +72,13 @@ body {
 
 .card-parchment:hover {
   border-color: rgba(197, 150, 58, 0.3);
+}
+
+[data-theme="light"] .card-parchment {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(160, 120, 40, 0.2);
+}
+
+[data-theme="light"] .card-parchment:hover {
+  border-color: rgba(160, 120, 40, 0.4);
 }

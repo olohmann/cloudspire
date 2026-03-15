@@ -60,7 +60,7 @@ export function PdfViewer({ pdfRef, onClose }: Props) {
     if (spans.length === 0) return;
 
     const markSpan = (span: HTMLElement) => {
-      span.style.backgroundColor = 'rgba(197, 150, 58, 0.35)';
+      span.style.backgroundColor = 'var(--color-highlight)';
       span.style.borderRadius = '2px';
       span.style.mixBlendMode = 'multiply';
     };

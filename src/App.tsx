@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Menu, BookOpen, Filter } from 'lucide-react';
+import { Menu, BookOpen, Filter, Sun, Moon } from 'lucide-react';
 import type { GameMode, Phase, PdfReference } from './types';
 import { ALL_PHASES, NAV_SECTIONS } from './types';
 import { rules } from './data/rules';
 import { abilities } from './data/abilities';
 import { useSearch } from './hooks/useSearch';
+import { useTheme } from './hooks/useTheme';
 import { ModeSelector } from './components/ModeSelector';
 import { SearchBar } from './components/SearchBar';
 import { Sidebar } from './components/Sidebar';
@@ -21,6 +22,7 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activePdf, setActivePdf] = useState<PdfReference | null>(null);
 
+  const { theme, toggleTheme } = useTheme();
   const { query, setQuery, filteredRules, filteredAbilities } = useSearch(rules, abilities, activeMode);
 
   const isTalentsView = activePhase === 'talents';
@@ -82,7 +84,7 @@ export default function App() {
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/hero-bg.png)' }}
       />
-      <div className="fixed inset-0 bg-midnight/85" />
+      <div className={`fixed inset-0 ${theme === 'dark' ? 'bg-midnight/85' : 'bg-midnight/70'}`} />
 
       {/* Top header bar — spans full width */}
       <header className="fixed top-0 left-0 right-0 z-30 bg-midnight-dark/90 backdrop-blur border-b border-gold/15">
@@ -100,6 +102,13 @@ export default function App() {
             Rules Reference
           </span>
           <div className="flex-1" />
+          <button
+            onClick={toggleTheme}
+            className="p-1.5 rounded hover:bg-midnight-light text-parchment-dark hover:text-gold cursor-pointer transition-colors"
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <ModeSelector active={activeMode} onChange={setActiveMode} />
         </div>
       </header>

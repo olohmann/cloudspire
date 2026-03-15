@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #1a2744;
+  --color-midnight-light: #243355;
+  --color-midnight-dark: #111b30;
+  --color-parchment: #e8dfd0;
+  --color-parchment-dark: #b8a88e;
+  --color-gold: #c5963a;
+  --color-gold-light: #d4ad5a;
+  --color-gold-dark: #a67b2e;
+  --color-teal: #2a6b6b;
+  --color-teal-light: #4a9e9e;
+  --color-pvp: #d45050;
+  --color-solo: #5a9e5a;
+  --color-coop: #5a7ec8;
+
+  --font-display: "Cinzel", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-midnight-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-midnight-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* Card styling */
+.card-parchment {
+  background: rgba(20, 30, 50, 0.6);
+  border: 1px solid rgba(197, 150, 58, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.card-parchment:hover {
+  border-color: rgba(197, 150, 58, 0.3);
+}
